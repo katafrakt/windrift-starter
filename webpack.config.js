@@ -39,7 +39,11 @@ module.exports = [{
     filename: "story.js"
   },
   module: {
-    loaders: [{ test: /.js/, loaders: ['babel-loader?cacheDirectory']},
+    loaders: [ {
+                test: /\.js[x]?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+              },
               { test: /\.json$/, loader: 'json-loader' },
               { test: /\.html$/, loader: 'html-loader'},
               { test: /\.hbs/, loader: 'handlebars-loader'},
